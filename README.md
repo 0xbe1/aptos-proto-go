@@ -1,8 +1,8 @@
 # aptos-proto-go
 
-Go bindings for [Aptos](https://aptoslabs.com/) Protocol Buffer definitions.
+Go bindings for Aptos Protocol Buffer definitions.
 
-This library provides Go packages generated from the official Aptos proto files, enabling Go applications to interact with Aptos gRPC services.
+This library provides Go packages generated from the [official Aptos proto files](https://github.com/aptos-labs/aptos-core/tree/main/protos/proto), enabling Go applications to interact with Aptos gRPC services.
 
 ## Installation
 
