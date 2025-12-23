@@ -32,16 +32,18 @@ export APTOS_API_KEY="your-api-key"
 go run examples/basic/main.go
 ```
 
-## Regenerating Proto Bindings
-
-To regenerate the Go bindings from the proto files:
+## Maintainer Commands
 
 ```bash
 # Install buf if not already installed
 brew install bufbuild/buf/buf
 
-# Generate Go bindings
-buf generate
+# Update proto files from aptos-core and regenerate Go bindings
+make update-protos
+make generate
+
+# Clean generated files
+make clean
 ```
 
 ## Source
