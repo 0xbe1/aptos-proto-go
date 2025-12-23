@@ -22,53 +22,14 @@ go get github.com/0xbe1/aptos-proto-go
 
 ## Usage Example
 
-```go
-package main
+See [examples/basic/main.go](examples/basic/main.go) for a complete example.
 
-import (
-    "context"
-    "log"
+Run it with:
 
-    indexerv1 "github.com/0xbe1/aptos-proto-go/aptos/indexer/v1"
-    "google.golang.org/grpc"
-    "google.golang.org/grpc/credentials/insecure"
-)
-
-func main() {
-    // Connect to Aptos indexer gRPC
-    conn, err := grpc.NewClient(
-        "grpc.mainnet.aptoslabs.com:443",
-        grpc.WithTransportCredentials(insecure.NewCredentials()),
-    )
-    if err != nil {
-        log.Fatalf("failed to connect: %v", err)
-    }
-    defer conn.Close()
-
-    // Create client
-    client := indexerv1.NewRawDataClient(conn)
-
-    // Stream transactions
-    stream, err := client.GetTransactions(context.Background(), &indexerv1.GetTransactionsRequest{
-        StartingVersion: ptr(uint64(0)),
-        BatchSize:       ptr(uint64(10)),
-    })
-    if err != nil {
-        log.Fatalf("failed to get transactions: %v", err)
-    }
-
-    for {
-        resp, err := stream.Recv()
-        if err != nil {
-            break
-        }
-        log.Printf("Received %d transactions", len(resp.Transactions))
-    }
-}
-
-func ptr[T any](v T) *T {
-    return &v
-}
+```bash
+# Get your API key from https://build.aptoslabs.com/
+export APTOS_API_KEY="your-api-key"
+go run examples/basic/main.go
 ```
 
 ## Regenerating Proto Bindings
