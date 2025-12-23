@@ -50,4 +50,4 @@ Proto definitions are from [aptos-labs/aptos-core](https://github.com/aptos-labs
 
 ## License
 
-The proto definitions are licensed under the [Innovation-Enabling Source Code License](https://github.com/aptos-labs/aptos-core/blob/main/LICENSE) by Aptos Foundation.
+Apache-2.0
